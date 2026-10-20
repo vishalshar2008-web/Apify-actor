@@ -2,10 +2,10 @@
   "actorSpecification": 1,
   "name": "shopify-product-pricing-feed-extractor",
   "title": "Shopify Product & Pricing Feed Extractor",
-  "description": "Extract normalized product, pricing, variant, and image data from publicly accessible Shopify storefronts.",
+  "description": "Extract normalized product, pricing, variant, and image data from publicly accessible Shopify storefronts. Produces one clean, deduplicated dataset record per unique product, with optional AI-friendly Markdown.",
   "version": "1.0.0",
   "buildTag": "latest",
   "minMemoryMbytes": 2048,
   "input": "./input_schema.json",
-  "dockerfile": "../Dockerfile"
+  "output": "./output_schema.json"
 }
