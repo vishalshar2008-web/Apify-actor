@@ -1,0 +1,25 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "schema_version": { "type": "string", "description": "Schema version." },
+    "record_type": { "type": "string", "description": "Always shopify_product." },
+    "product_key": { "type": "string", "description": "Stable unique identifier." },
+    "product_id": { "type": "string", "description": "Native Shopify product ID." },
+    "store_domain": { "type": "string", "description": "Normalized store domain." },
+    "product_url": { "type": "string", "description": "Original requested product URL." },
+    "canonical_url": { "type": "string", "description": "Canonical product URL." },
+    "extracted_at": { "type": "string", "description": "UTC ISO timestamp." },
+    "title": { "type": "string", "description": "Product title." },
+    "handle": { "type": "string", "description": "Product handle." },
+    "vendor": { "type": "string", "description": "Brand or vendor name." },
+    "product_type": { "type": "string", "description": "Category or product type." },
+    "description_text": { "type": "string", "description": "Clean plaintext description." },
+    "currency": { "type": "string", "description": "ISO currency code." },
+    "price_min": { "type": "string", "description": "Minimum active price." },
+    "price_max": { "type": "string", "description": "Maximum active price." },
+    "available": { "type": "boolean", "description": "Stock availability." },
+    "variants": { "type": "array", "description": "List of product variants." },
+    "images": { "type": "array", "description": "List of absolute image URLs." },
+    "markdown": { "type": "string", "description": "Clean LLM-ready Markdown representation." }
+  }
+}
