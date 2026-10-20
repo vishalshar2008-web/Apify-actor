@@ -1,0 +1,46 @@
+{
+  "actorSpecification": 1,
+  "title": "Shopify Product Dataset",
+  "description": "Normalized Shopify product, pricing, variant, image, and Markdown records.",
+  "fields": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string" },
+      "vendor": { "type": ["string", "null"] },
+      "store_domain": { "type": "string" },
+      "currency": { "type": ["string", "null"] },
+      "price_min": { "type": ["string", "null"] },
+      "price_max": { "type": ["string", "null"] },
+      "available": { "type": ["boolean", "null"] },
+      "canonical_url": { "type": "string" },
+      "product_key": { "type": "string" },
+      "product_id": {
+        "type": ["string", "integer", "null"]
+      },
+      "variants": { "type": "array" },
+      "images": { "type": "array" },
+      "tags": { "type": "array" },
+      "markdown": { "type": "string" }
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Product Overview",
+      "transformation": {
+        "fields": [
+          "title",
+          "vendor",
+          "store_domain",
+          "currency",
+          "price_min",
+          "price_max",
+          "available",
+          "canonical_url"
+        ]
+      },
+      "display": {
+        "component": "table"
+      }
+    }
+  }
+}
