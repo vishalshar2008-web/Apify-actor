@@ -1,0 +1,85 @@
+{
+  "title": "Shopify Product & Pricing Feed Extractor",
+  "description": "Extract normalized product, pricing, variant, and image data from publicly accessible Shopify storefronts. Produces one dataset record per unique product with optional clean Markdown for AI shopping agents.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Store, collection, or product URLs",
+      "type": "array",
+      "description": "Enter the public Shopify storefront homepage, a collection URL, or individual product URL. Multiple URLs are supported.",
+      "editor": "requestListSources",
+      "prefill": [
+        {
+          "url": "https://example.myshopify.com"
+        }
+      ]
+    },
+    "maxProducts": {
+      "title": "Maximum products",
+      "type": "integer",
+      "description": "Maximum number of unique product records to publish across the entire run.",
+      "editor": "number",
+      "default": 1000,
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "maxPagesPerStore": {
+      "title": "Maximum pages per store",
+      "type": "integer",
+      "description": "Maximum total crawled pages per unique store domain, including collection, product, and sitemap pages.",
+      "editor": "number",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 5000
+    },
+    "maxConcurrency": {
+      "title": "Maximum concurrent requests",
+      "type": "integer",
+      "description": "Maximum number of concurrent crawl tasks. Keep this low for responsible storefront extraction.",
+      "editor": "number",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 3
+    },
+    "maxTasksPerMinute": {
+      "title": "Maximum tasks per minute",
+      "type": "integer",
+      "description": "Global Crawlee task limit for controlling crawl speed across the run.",
+      "editor": "number",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 120
+    },
+    "includeVariants": {
+      "title": "Include product variants",
+      "type": "boolean",
+      "description": "Include publicly available variant IDs, titles, SKUs, options, availability, and prices.",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "includeMarkdown": {
+      "title": "Include AI-friendly Markdown",
+      "type": "boolean",
+      "description": "Add a clean, product-specific Markdown representation to each dataset record.",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "proxyConfiguration": {
+      "title": "Proxy configuration",
+      "type": "object",
+      "description": "Configure Apify Proxy or authorized custom proxies for reliable public storefront access. Proxy use does not override access restrictions.",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": true
+      },
+      "prefill": {
+        "useApifyProxy": true
+      }
+    }
+  },
+  "required": [
+    "startUrls"
+  ],
+  "additionalProperties": false
+}
